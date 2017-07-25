@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<form method="post" action='@Url.Action("Store", "Home")'>
+    Name:<br>
+    <input type="text" name="firstName" value="name" onfocus="if(this.value == 'name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'name' }">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastName" value="last name" onfocus="if(this.value == 'last name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'last name' }">
+    <br>
+    Email:<br>
+    <input type="email" name="email" value="email" onfocus="if(this.value == 'email') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'email' }">
+    <br /><br />
+    <input type="submit" value="Submit">
+</form>
+
+
