@@ -34,8 +34,8 @@ namespace CoffeeShop.cs.Controllers
 
         public ActionResult Store(string firstName, string lastName, string email)
         {
-            ViewBag.Message = $"Hello, {firstName}, welcome to Grand Circus Coffee House.";
-
+            ViewBag.firstName = $"Hello, {firstName}, welcome to Grand Circus Coffee House.";
+            ViewBag.Email = $"Your email is {email}.";
             return View();
         }
     }
