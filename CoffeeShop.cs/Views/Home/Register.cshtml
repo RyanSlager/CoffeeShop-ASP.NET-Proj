@@ -2,26 +2,66 @@
 @{
     ViewBag.Title = "Register";
 }
+<style>
+    body {
+        background: url("https://cdn.vox-cdn.com/uploads/chorus_image/image/45748220/the-wydown.0.0.jpg") !important;
+        background-position: right top !important;
+        background-size: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+    form{
+        color:white;
+    }
 
-<h2>Register</h2>
+    h2{
+        color:white;
+    }
+</style>
 
-<form method="post" action='@Url.Action("Store", "Home")'>
+<h2 style="margin-left:40%; margin-right:50%; position:relative;">Register</h2>
+
+<form method="post" action='@Url.Action("Store", "Home")'  onsubmit="return checkPass()" style="margin-left:40%; margin-right:50%; position:relative;">
     Name:<br>
-    <input type="text" name="firstName" value="name" onfocus="if(this.value == 'name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'name' }">
+    <input id="name" type="text" name="firstName" value="name" onfocus="if(this.value == 'name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'name' }">
     <br>
     Last name:<br>
-    <input type="text" name="lastName" value="last name" onfocus="if(this.value == 'last name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'last name' }">
+    <input id="lName" type="text" name="lastName" value="last name" onfocus="if(this.value == 'last name') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'last name' }">
     <br>
     Email:<br>
-    <input type="email" name="email" value="email" onfocus="if(this.value == 'email') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'email' }">
+    <input id="email" type="email" name="email" value="email" onfocus="if(this.value == 'email') { this.value = ''; }" onblur="if (this.value == '') { this.value = 'email' }">
     <br />
+    Pick a Roaster:<br />  
+    <select id="coffee" name="coffee">
+        <option value="default" selected>select a roastery</option>
+        <option value="theSparrows">The Sparrows</option>
+        <option value="madCap">Mad Cap</option>
+        <option value="schuil">Schuil Coffee Company</option>
+        <option value="rowster">Rowster</option>
+        <option value="ferris">Ferris</option>
+    </select><br />
     Password: <br />
-    <input type="password" name="password" placeholder="password" /><br />
+    <input id="pass" type="password" name="password" placeholder="password" value=""/><br />
     Confirm Password:<br />
-    <input type="password" name="passConfirm" placeholder="confirm password"/><br /><br />
+    <input id="conPass" type="password" name="passConfirm" placeholder="confirm password" value=""/><br /><br />
     <input type="submit" value="Submit">
-    
-
 </form>
+
+<script>
+    function checkPass() {
+        var a = document.getElementById("pass");
+        var b = document.getElementById("conPass");
+
+        if (a.value === "" || b.value === "") {
+            alert("Please fill in both password fields.")
+            return false;
+        }
+        else if (a.value !== b.value) {
+            alert("Your passwords do not match!")
+            return false;
+        }
+    }
+</script>
 
 
